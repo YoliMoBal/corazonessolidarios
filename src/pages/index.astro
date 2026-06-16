@@ -1,7 +1,303 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const noticias = [
+  {
+    titulo: "Mercado de la Solidaridad y entrega de Premios por el Día Internacional del Voluntariado",
+    fecha: "30 de noviembre de 2025",
+    categoria: "Premios",
+    imagen: "/img/premio_labor_voluntarios.jpg",
+    texto: "La Plaza Castilla acoge el Mercado de la Solidaridad y la entrega de los Premios por el Día Internacional del Voluntariado en Antequera."
+  },
+  {
+    titulo: 'BANCOSOL en "LA GRAN RECOGIDA 2025"',
+    fecha: "8 de noviembre de 2025",
+    categoria: "Voluntariado",
+    imagen: "/img/bancosol_voluntariado.jpg",
+    texto: "Corazones Solidarios acompaña a BANCOSOL en su gran recogida de alimentos. Gracias al voluntariado que lo hace posible."
+  },
+  {
+    titulo: "Seguimos acompañando, con humildad y cariño, a quienes más lo necesitan",
+    fecha: "5 de noviembre de 2025",
+    categoria: "Ayuda Social",
+    imagen: "/img/cama.jpg",
+    texto: "Gracias al Ayuntamiento de Antequera y a todas las personas que colaboran con nosotros."
+  },
+  {
+    titulo: "Premio otorgado por la Fundación Juan Cruzado",
+    fecha: "20 de octubre de 2025",
+    categoria: "Premios",
+    imagen: "/img/fundacion_juan_cruzado.jpg",
+    texto: "Nos honra acompañar a entidades que comparten nuestro compromiso con las personas mayores y la solidaridad."
+  }
+];
 ---
+
 <Layout title="Inicio | Corazones Solidarios Antequera">
-  <h2>Últimas noticias</h2>
-  <p>Contenido en construcción...</p>
+
+  <section class="hero">
+    <div class="hero-contenido">
+      <h2>Juntos hacemos posible<br/>una comunidad más solidaria</h2>
+      <p>Formación en RCP, primeros auxilios, proyectos sociales y mucho más.<br/>Desde Antequera, cuidándonos entre todos.</p>
+      <div class="hero-botones">
+        <a href="/proyectos" class="btn-principal">Nuestros proyectos</a>
+        <a href="#noticias" class="btn-secundario">Últimas noticias</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="num">+500</span><span class="label">Formados en RCP</span></div>
+        <div class="stat"><span class="num">7</span><span class="label">Proyectos activos</span></div>
+        <div class="stat"><span class="num">+10</span><span class="label">Años de voluntariado</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="noticias-seccion" id="noticias">
+    <div class="contenedor">
+      <h2 class="seccion-titulo">Últimas Noticias</h2>
+      <div class="grid-noticias">
+        {noticias.map((n) => (
+          <article class="tarjeta">
+            <div class="tarjeta-img">
+              <img src={n.imagen} alt={n.titulo} />
+              <span class="categoria">{n.categoria}</span>
+            </div>
+            <div class="tarjeta-cuerpo">
+              <p class="fecha">📅 {n.fecha}</p>
+              <h3>{n.titulo}</h3>
+              <p class="resumen">{n.texto}</p>
+              <a href="#" class="leer-mas">Leer más →</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="proyectos-seccion">
+    <div class="contenedor">
+      <h2 class="seccion-titulo">Nuestros Proyectos</h2>
+      <div class="grid-proyectos">
+        <div class="proyecto-card">
+          <div class="proyecto-icono">💓</div>
+          <h3>RCP y Desfibrilación</h3>
+          <p>Formación en reanimación cardiopulmonar para salvar vidas.</p>
+        </div>
+        <div class="proyecto-card">
+          <div class="proyecto-icono">💊</div>
+          <h3>Farmacia Solidaria</h3>
+          <p>Medicamentos para quienes más lo necesitan.</p>
+        </div>
+        <div class="proyecto-card">
+          <div class="proyecto-icono">🛍️</div>
+          <h3>Mercadillo Solidario</h3>
+          <p>Recaudación para financiar nuestros proyectos sociales.</p>
+        </div>
+        <div class="proyecto-card">
+          <div class="proyecto-icono">🫀</div>
+          <h3>Donación de Órganos</h3>
+          <p>Concienciación y formación sobre la donación de órganos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </Layout>
+
+<style>
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #8c1a6e 0%, #b94099 60%, #d45aaa 100%);
+    padding: 3rem 2rem;
+    text-align: center;
+    color: white;
+  }
+
+  .hero-contenido { max-width: 700px; margin: 0 auto; }
+
+  .hero h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .hero-botones { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+  .btn-principal {
+    background: white;
+    color: #b94099;
+    padding: 0.75rem 2rem;
+    border-radius: 30px;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: transform 0.2s;
+  }
+
+  .btn-principal:hover { transform: translateY(-2px); }
+
+  .btn-secundario {
+    background: transparent;
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 30px;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1rem;
+    border: 2px solid rgba(255,255,255,0.6);
+    transition: border-color 0.2s;
+  }
+
+  .btn-secundario:hover { border-color: white; }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    flex-wrap: wrap;
+  }
+
+  .stat { display: flex; flex-direction: column; align-items: center; }
+  .stat .num { font-size: 2rem; font-weight: 700; }
+  .stat .label { font-size: 0.85rem; opacity: 0.8; }
+
+  /* ── CONTENEDOR ── */
+  .contenedor { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+  .seccion-titulo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #b94099;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  .seccion-titulo::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #b94099;
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+  }
+
+  /* ── NOTICIAS ── */
+  .noticias-seccion { padding: 3rem 0; }
+
+  .grid-noticias {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .tarjeta {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(185,64,153,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .tarjeta:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(185,64,153,0.15);
+  }
+
+  .tarjeta-img { position: relative; }
+
+  .tarjeta-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .categoria {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #b94099;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+  }
+
+  .tarjeta-cuerpo { padding: 1.2rem; }
+
+  .fecha { font-size: 0.82rem; color: #aaa; margin-bottom: 0.5rem; }
+
+  .tarjeta-cuerpo h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #222;
+    line-height: 1.4;
+    margin-bottom: 0.6rem;
+  }
+
+  .resumen { font-size: 0.9rem; color: #666; line-height: 1.5; margin-bottom: 1rem; }
+
+  .leer-mas {
+    color: #b94099;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .leer-mas:hover { text-decoration: underline; }
+
+  /* ── PROYECTOS ── */
+  .proyectos-seccion {
+    padding: 3rem 0;
+    background: white;
+  }
+
+  .grid-proyectos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+  }
+
+  .proyecto-card {
+    background: #fdf5fb;
+    border: 1px solid #f0d0eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+
+  .proyecto-card:hover { transform: translateY(-4px); }
+
+  .proyecto-icono { font-size: 2.5rem; margin-bottom: 0.8rem; }
+
+  .proyecto-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #b94099;
+    margin-bottom: 0.5rem;
+  }
+
+  .proyecto-card p { font-size: 0.88rem; color: #666; line-height: 1.5; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero h2 { font-size: 1.5rem; }
+    .grid-noticias { grid-template-columns: 1fr; }
+    .grid-proyectos { grid-template-columns: repeat(2, 1fr); }
+    .hero-stats { gap: 1.5rem; }
+  }
+</style>

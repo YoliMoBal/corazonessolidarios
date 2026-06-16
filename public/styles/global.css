@@ -1,0 +1,276 @@
+/*YOLANDA MORENO BALTA*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fdf5fb;
+    color: #333;
+}
+
+a {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* ── HEADER ── */
+header {
+    width: 100%;
+    background-color: white;
+}
+
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    min-height: 120px;
+    padding: 1rem 2rem;
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.marca-agua {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.logotipo {
+    position: relative;
+    z-index: 2;
+}
+
+.logotipo img {
+    max-width: 100px;
+    height: auto;
+}
+
+.texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.texto h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #b94099;
+}
+
+.texto p {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #888;
+}
+
+.login {
+    position: relative;
+    z-index: 2;
+}
+
+.login img {
+    max-width: 50px;
+    height: auto;
+}
+
+/* ── NAVBAR ── */
+.menu-hamburguesa {
+    display: none;
+}
+
+nav {
+    background-color: #b94099;
+    padding: 0;
+}
+
+.menu_principal {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu_principal li {
+    flex: 1;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    position: relative;
+}
+
+.menu_principal li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.9rem 0.5rem;
+    display: block;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background 0.2s;
+}
+
+.menu_principal li a:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+/* ── FOOTER ── */
+.pie {
+    background-color: #b94099;
+    color: white;
+    padding: 1.2rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.pie p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* ── JUNTA DIRECTIVA ── */
+main.junta {
+    padding: 2rem;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.directiva h2 {
+    font-size: 2rem;
+    color: #b94099;
+    margin-bottom: 1rem;
+}
+
+.directiva .intro {
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+    line-height: 1.6;
+    color: #333;
+}
+
+.miembros {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+    justify-items: center;
+    width: 100%;
+    max-width: 1670px;
+    margin: 0 auto;
+}
+
+.miembro {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 1rem;
+    width: 100%;
+    max-width: 260px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.miembro:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.miembro img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 0.8rem;
+}
+
+.miembro h3 {
+    font-size: 1.2rem;
+    color: #b94099;
+    margin: 0.5rem 0 0.3rem 0;
+}
+
+.miembro p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.volver-index {
+    margin-top: 2.5rem;
+    text-align: center;
+}
+
+.btn-volver {
+    display: inline-block;
+    background-color: #b94099;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-volver:hover {
+    background-color: #8c1a6e;
+    transform: translateY(-2px);
+}
+
+/* ── QUIENES SOMOS ── */
+main.quienes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.texto-quienes {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #444;
+    text-align: justify;
+}
+
+.imagen-central img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+    .texto h1 { font-size: 1.4rem; }
+    .texto p { font-size: 0.9rem; }
+    .encabezado { min-height: 90px; padding: 0.8rem 1rem; }
+    .menu_principal { flex-direction: column; }
+    .menu_principal li a { padding: 0.7rem; }
+    .miembros { grid-template-columns: 1fr; }
+    .miembro { max-width: 100%; }
+}

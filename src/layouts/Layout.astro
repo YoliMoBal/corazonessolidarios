@@ -7,14 +7,13 @@ const { title = "Corazones Solidarios Antequera" } = Astro.props;
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="/favicon.png" type="image/png" />
-  <title>{title}</title>
   <link rel="stylesheet" href="/src/styles/global.css" />
+  <title>{title}</title>
 </head>
 <body>
 
   <header>
     <div class="encabezado">
-      <img src="/img/marca-agua.jpg" class="marca-agua" alt="Silueta Antequera" />
       <div class="logotipo">
         <img src="/img/logo.jpg" alt="Logo Corazones Solidarios" />
       </div>
@@ -23,28 +22,64 @@ const { title = "Corazones Solidarios Antequera" } = Astro.props;
         <p>Bienvenidos a nuestra página web</p>
       </div>
       <div class="login">
-        <a href="/admin"><img src="/img/login.png" alt="Acceso administración" /></a>
+        <a href="/admin" title="Acceso administración">
+          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#b94099" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          <path d="M16 11l4 4-4 4"/>
+          </svg>
+        </a>
       </div>
+      <img class="marca-agua" src="/img/marca-agua.jpg" alt="" />
     </div>
-  </header>
 
-  <nav>
-    <ul class="menu_principal">
-      <li><a href="/">Inicio</a></li>
-      <li><a href="/nosotros">Nosotros</a></li>
-      <li><a href="/proyectos">Proyectos</a></li>
-      <li><a href="/galeria">Galería</a></li>
-      <li><a href="/junta">Junta Directiva</a></li>
-      <li><a href="/contacto">Contacto</a></li>
-    </ul>
-  </nav>
+    <input type="checkbox" id="menu-hamburguesa" class="menu-hamburguesa" />
+    <label for="menu-hamburguesa" class="icono-hamburguesa">
+      <span></span><span></span><span></span>
+    </label>
+
+    <nav>
+      <ul class="menu_principal">
+        <li>
+          <a href="/">INICIO</a>
+          <ul>
+            <li><a href="#noticias">Últimas Noticias</a></li>
+            <li><a href="/galeria">Galería de Imágenes</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="/nosotros">NOSOTROS</a>
+          <ul>
+            <li><a href="/nosotros">Historia</a></li>
+            <li><a href="/junta">Junta Directiva</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="/proyectos">PROYECTOS</a>
+          <ul>
+            <li><a href="/proyectos#rcp">RCP y Desfibrilación</a></li>
+            <li><a href="/proyectos#primeros-auxilios">Primeros Auxilios</a></li>
+            <li><a href="/proyectos#ictus">Ictus</a></li>
+            <li><a href="/proyectos#organos">Donación de Órganos</a></li>
+            <li><a href="/proyectos#farmacia">Farmacia Solidaria</a></li>
+            <li><a href="/proyectos#mercadillo">Mercadillo Solidario</a></li>
+            <li><a href="/proyectos#habitos">Hábitos Saludables</a></li>
+          </ul>
+        </li>
+        <li><a href="/galeria">GALERÍA</a></li>
+        <li><a href="/junta">JUNTA DIRECTIVA</a></li>
+        <li><a href="/contacto">CONTACTO</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main>
     <slot />
   </main>
 
-  <footer class="pie">
-    <p>© 2025 Corazones Solidarios Antequera · corazonessolidariosantequera24@gmail.com</p>
+  <footer>
+    <p>Contacto: corazonessolidariosantequera24@gmail.com</p>
+    <p>&copy; 2025 Yolanda Moreno Balta · Todos los derechos reservados</p>
   </footer>
 
 </body>
