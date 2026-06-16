@@ -1,0 +1,51 @@
+---
+const { title = "Corazones Solidarios Antequera" } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/favicon.png" type="image/png" />
+  <title>{title}</title>
+  <link rel="stylesheet" href="/src/styles/global.css" />
+</head>
+<body>
+
+  <header>
+    <div class="encabezado">
+      <img src="/img/marca-agua.jpg" class="marca-agua" alt="Silueta Antequera" />
+      <div class="logotipo">
+        <img src="/img/logo.jpg" alt="Logo Corazones Solidarios" />
+      </div>
+      <div class="texto">
+        <h1>Corazones Solidarios Antequera</h1>
+        <p>Bienvenidos a nuestra página web</p>
+      </div>
+      <div class="login">
+        <a href="/admin"><img src="/img/login.png" alt="Acceso administración" /></a>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <ul class="menu_principal">
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/nosotros">Nosotros</a></li>
+      <li><a href="/proyectos">Proyectos</a></li>
+      <li><a href="/galeria">Galería</a></li>
+      <li><a href="/junta">Junta Directiva</a></li>
+      <li><a href="/contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="pie">
+    <p>© 2025 Corazones Solidarios Antequera · corazonessolidariosantequera24@gmail.com</p>
+  </footer>
+
+</body>
+</html>

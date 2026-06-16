@@ -1,0 +1,169 @@
+/*YOLANDA MORENO BALTA*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+header {
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+    background-color: #f4f4f4;
+}
+
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    padding: 1rem;
+    background-color: white;
+    text-align: center;
+    position: relative;
+}
+
+.marca-agua {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.logotipo img {
+    max-width: 120px;
+    height: auto;
+}
+
+.texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.texto h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #b94099;
+}
+
+.texto p {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #666;
+}
+
+.login img {
+    max-width: 50px;
+    height: auto;
+}
+
+.menu-hamburguesa {
+    display: none;
+}
+
+nav {
+    margin: 1rem;
+    position: relative;
+}
+
+.menu_principal {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+}
+
+.menu_principal li {
+    background-color: rgb(226, 190, 221);
+    padding: 0.5rem 1rem;
+    margin: 0 1rem;
+    border-radius: 5px;
+    position: relative;
+}
+
+.menu_principal li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 0.5rem;
+    display: block;
+    text-align: center;
+}
+
+.menu_principal li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgb(226, 190, 221);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    list-style: none;
+}
+
+.menu_principal li:hover > ul {
+    display: block;
+}
+
+.menu_principal li ul li {
+    background-color: rgb(226, 190, 221);
+    padding: 0.5rem 1rem;
+}
+
+.menu_principal li ul li:hover {
+    background-color: rgb(187, 148, 191);
+}
+
+.pie {
+    background-color: #b94099;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.pie p {
+    margin: 0;
+}
+
+@media (max-width: 620px) {
+    .texto h1 {
+        font-size: 1.8rem;
+        color: #b94099;
+    }
+
+    .texto p {
+        font-size: 1rem;
+        color: #666;
+    }
+
+    nav {
+        display: none;
+        width: 100%;
+    }
+
+    .menu_principal {
+        display: block;
+        width: 100%;
+    }
+
+    .menu_principal li {
+        margin: 0;
+        border-radius: 5px;
+        background-color: rgb(226, 190, 221);
+    }
+}
