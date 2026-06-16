@@ -60,7 +60,7 @@ nav {
 
 .menu_principal {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   gap: 0;
   list-style: none;
   margin: 0;
@@ -77,9 +77,9 @@ nav {
   background: transparent;
   color: #b94099;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   border-bottom: 3px solid transparent;
   transition: border-color 0.2s, color 0.2s;
 }
