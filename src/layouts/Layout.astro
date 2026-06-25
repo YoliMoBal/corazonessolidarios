@@ -15,7 +15,9 @@ const { title = "Corazones Solidarios Antequera" } = Astro.props;
   <header>
     <div class="encabezado">
       <div class="logotipo">
+        <a href="/">
         <img src="/img/logo.jpg" alt="Logo Corazones Solidarios" />
+      </a>
       </div>
       <div class="texto">
         <h1>Corazones Solidarios Antequera</h1>
@@ -23,10 +25,10 @@ const { title = "Corazones Solidarios Antequera" } = Astro.props;
       </div>
       <div class="login">
         <a href="/admin" title="Acceso administración">
-          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#b94099" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
             <circle cx="12" cy="7" r="4"/>
-          <path d="M16 11l4 4-4 4"/>
+            <path d="M16 11l4 4-4 4"/>
           </svg>
         </a>
       </div>
@@ -43,7 +45,7 @@ const { title = "Corazones Solidarios Antequera" } = Astro.props;
         <li>
           <a href="/">INICIO</a>
           <ul>
-            <li><a href="#noticias">Últimas Noticias</a></li>
+            <li><a href="/#noticias">Últimas Noticias</a></li>
             <li><a href="/galeria">Galería de Imágenes</a></li>
           </ul>
         </li>
@@ -57,13 +59,12 @@ const { title = "Corazones Solidarios Antequera" } = Astro.props;
         <li>
           <a href="/proyectos">PROYECTOS</a>
           <ul>
-            <li><a href="/proyectos#rcp">RCP y Desfibrilación</a></li>
-            <li><a href="/proyectos#primeros-auxilios">Primeros Auxilios</a></li>
-            <li><a href="/proyectos#ictus">Ictus</a></li>
-            <li><a href="/proyectos#organos">Donación de Órganos</a></li>
-            <li><a href="/proyectos#farmacia">Farmacia Solidaria</a></li>
-            <li><a href="/proyectos#mercadillo">Mercadillo Solidario</a></li>
-            <li><a href="/proyectos#habitos">Hábitos Saludables</a></li>
+            <li><a href="/proyectos#cojines">Taller de Confección de Cojines</a></li>
+            <li><a href="/proyectos#talleres">Talleres de Formación</a></li>
+            <li><a href="/proyectos#promocion-salud">Promoción de Salud</a></li>
+            <li><a href="/proyectos#mercadillos">Mercadillos Solidarios</a></li>
+            <li><a href="/proyectos#corazon-de-oro">Premios Corazón de Oro</a></li>
+            <li><a href="/proyectos#colaboracion">Colaboración Solidaria</a></li>
           </ul>
         </li>
         <li><a href="/galeria">GALERÍA</a></li>

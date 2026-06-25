@@ -36,6 +36,7 @@ const noticias = [
 <Layout title="Inicio | Corazones Solidarios Antequera">
 
   <section class="hero">
+    <div class="hero-fondo"></div>
     <div class="hero-contenido">
       <h2>Juntos hacemos posible<br/>una comunidad más solidaria</h2>
       <p>Formación en RCP, primeros auxilios, proyectos sociales y mucho más.<br/>Desde Antequera, cuidándonos entre todos.</p>
@@ -45,7 +46,7 @@ const noticias = [
       </div>
       <div class="hero-stats">
         <div class="stat"><span class="num">+500</span><span class="label">Formados en RCP</span></div>
-        <div class="stat"><span class="num">7</span><span class="label">Proyectos activos</span></div>
+        <div class="stat"><span class="num">6</span><span class="label">Proyectos activos</span></div>
         <div class="stat"><span class="num">+10</span><span class="label">Años de voluntariado</span></div>
       </div>
     </div>
@@ -77,26 +78,36 @@ const noticias = [
     <div class="contenedor">
       <h2 class="seccion-titulo">Nuestros Proyectos</h2>
       <div class="grid-proyectos">
-        <div class="proyecto-card">
+        <a href="/proyectos#cojines" class="proyecto-card">
+          <div class="proyecto-icono">🧵</div>
+          <h3>Cojines Solidarios</h3>
+          <p>Confección de cojines para mujeres con cáncer de mama.</p>
+        </a>
+        <a href="/proyectos#talleres" class="proyecto-card">
           <div class="proyecto-icono">💓</div>
-          <h3>RCP y Desfibrilación</h3>
-          <p>Formación en reanimación cardiopulmonar para salvar vidas.</p>
-        </div>
-        <div class="proyecto-card">
-          <div class="proyecto-icono">💊</div>
-          <h3>Farmacia Solidaria</h3>
-          <p>Medicamentos para quienes más lo necesitan.</p>
-        </div>
-        <div class="proyecto-card">
+          <h3>Talleres de Formación</h3>
+          <p>RCP y primeros auxilios para saber actuar ante una emergencia.</p>
+        </a>
+        <a href="/proyectos#promocion-salud" class="proyecto-card">
+          <div class="proyecto-icono">🩺</div>
+          <h3>Promoción de Salud</h3>
+          <p>Charlas de concienciación: ictus, donación, hábitos saludables.</p>
+        </a>
+        <a href="/proyectos#mercadillos" class="proyecto-card">
           <div class="proyecto-icono">🛍️</div>
-          <h3>Mercadillo Solidario</h3>
-          <p>Recaudación para financiar nuestros proyectos sociales.</p>
-        </div>
-        <div class="proyecto-card">
-          <div class="proyecto-icono">🫀</div>
-          <h3>Donación de Órganos</h3>
-          <p>Concienciación y formación sobre la donación de órganos.</p>
-        </div>
+          <h3>Mercadillos Solidarios</h3>
+          <p>Recaudación de fondos con la Plataforma del Voluntariado.</p>
+        </a>
+        <a href="/proyectos#corazon-de-oro" class="proyecto-card">
+          <div class="proyecto-icono">🏆</div>
+          <h3>Premios Corazón de Oro</h3>
+          <p>Reconocimiento anual a la labor solidaria en Antequera.</p>
+        </a>
+        <a href="/proyectos#colaboracion" class="proyecto-card">
+          <div class="proyecto-icono">🤝</div>
+          <h3>Colaboración Solidaria</h3>
+          <p>Apoyo a personas vulnerables y a otras asociaciones.</p>
+        </a>
       </div>
     </div>
   </section>
@@ -106,13 +117,32 @@ const noticias = [
 <style>
   /* ── HERO ── */
   .hero {
-    background: linear-gradient(135deg, #8c1a6e 0%, #b94099 60%, #d45aaa 100%);
+    position: relative;
     padding: 3rem 2rem;
     text-align: center;
     color: white;
+    overflow: hidden;
   }
 
-  .hero-contenido { max-width: 700px; margin: 0 auto; }
+  .hero-fondo {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(138,90,150,0.88) 0%, rgba(170,120,180,0.85) 60%, rgba(201,168,212,0.8) 100%),
+      url('/img/mercadillo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    animation: kenburns 20s ease-in-out infinite alternate;
+    z-index: 0;
+  }
+
+  @keyframes kenburns {
+    0%   { transform: scale(1) translate(0, 0); }
+    100% { transform: scale(1.15) translate(-1%, -1%); }
+  }
+
+  .hero-contenido { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
 
   .hero h2 {
     font-size: 2rem;
@@ -132,7 +162,7 @@ const noticias = [
 
   .btn-principal {
     background: white;
-    color: #b94099;
+    color: #AA78B4;
     padding: 0.75rem 2rem;
     border-radius: 30px;
     font-weight: 700;
@@ -177,7 +207,7 @@ const noticias = [
   .seccion-titulo {
     font-size: 1.6rem;
     font-weight: 700;
-    color: #b94099;
+    color: #AA78B4;
     text-align: center;
     margin-bottom: 2rem;
     position: relative;
@@ -188,7 +218,7 @@ const noticias = [
     display: block;
     width: 60px;
     height: 3px;
-    background: #b94099;
+    background: #AA78B4;
     margin: 0.5rem auto 0;
     border-radius: 2px;
   }
@@ -206,13 +236,13 @@ const noticias = [
     background: white;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 16px rgba(185,64,153,0.08);
+    box-shadow: 0 4px 16px rgba(170,120,180,0.08);
     transition: transform 0.2s, box-shadow 0.2s;
   }
 
   .tarjeta:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(185,64,153,0.15);
+    box-shadow: 0 8px 24px rgba(170,120,180,0.15);
   }
 
   .tarjeta-img { position: relative; }
@@ -228,7 +258,7 @@ const noticias = [
     position: absolute;
     top: 10px;
     left: 10px;
-    background: #b94099;
+    background: #AA78B4;
     color: white;
     font-size: 0.75rem;
     font-weight: 700;
@@ -251,7 +281,7 @@ const noticias = [
   .resumen { font-size: 0.9rem; color: #666; line-height: 1.5; margin-bottom: 1rem; }
 
   .leer-mas {
-    color: #b94099;
+    color: #AA78B4;
     font-size: 0.9rem;
     font-weight: 700;
     text-decoration: none;
@@ -267,17 +297,24 @@ const noticias = [
 
   .grid-proyectos {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.2rem;
   }
 
   .proyecto-card {
-    background: #fdf5fb;
-    border: 1px solid #f0d0eb;
+    background: #F9F4FA;
+    border: 1px solid #F0E4F5;
     border-radius: 12px;
     padding: 1.5rem;
     text-align: center;
     transition: transform 0.2s;
+    text-decoration: none;
+    display: block;
+  }
+
+  .proyecto-card,
+  .proyecto-card * {
+    text-decoration: none;
   }
 
   .proyecto-card:hover { transform: translateY(-4px); }
@@ -287,7 +324,7 @@ const noticias = [
   .proyecto-card h3 {
     font-size: 1rem;
     font-weight: 700;
-    color: #b94099;
+    color: #AA78B4;
     margin-bottom: 0.5rem;
   }
 

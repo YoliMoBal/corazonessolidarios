@@ -1,0 +1,143 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Quiénes Somos | Corazones Solidarios Antequera">
+
+  <!-- Banner superior -->
+  <section class="banner">
+    <div class="banner-fondo"></div>
+    <div class="banner-contenido">
+      <h2>Quiénes Somos</h2>
+    </div>
+  </section>
+
+  <!-- Historia -->
+  <section class="historia">
+    <div class="contenedor">
+      <div class="historia-grid">
+        <div class="historia-imagen">
+          <img src="/img/morales.jpg" alt="Acto de despedida de María Jesús Morales Acedo, fundadora de Corazones Solidarios" />
+        </div>
+        <div class="historia-texto">
+          <p><strong>Corazones Solidarios</strong> es una asociación fundada por <strong>María Jesús Morales Acedo</strong> en el año <strong>2018</strong>, nacida en el seno de las urgencias del <strong>Hospital Comarcal de Antequera</strong>. Surge del compromiso de un grupo de profesionales sanitarios que comparten una misma vocación: cuidar la salud de las personas y fomentar la solidaridad en la comunidad.</p>
+
+          <p>Desde su creación, la asociación ha desarrollado numerosas <strong>actividades solidarias y de promoción de la salud</strong>, como talleres formativos, campañas de concienciación y proyectos de prevención. Uno de sus logros más destacados ha sido la <strong>transformación de Antequera en una ciudad cardioprotegida</strong>, además de la creación de varios <strong>espacios cerebroprotegidos</strong> para la atención temprana del ictus.</p>
+
+          <p>En el año <strong>2024</strong>, <strong>Mariano Martínez</strong>, asumió la presidencia de la asociación, tomando el relevo de su fundadora. María Jesús Morales expresó su satisfacción por el camino recorrido y agradeció la colaboración de instituciones, entidades y vecinos que han apoyado el proyecto desde sus inicios, especialmente al <strong>Ayuntamiento de Antequera</strong>, al <strong>Área Sanitaria Norte de Málaga</strong> y a empresas como <strong>DCOOP</strong> y <strong>Club Social Matagrande</strong>.</p>
+
+          <p><strong>Corazones Solidarios Antequera</strong> mantiene hoy su firme compromiso con la educación, la prevención y el bienestar colectivo, convencida de que <em>cada acción cuenta y cada persona suma</em>. 💜</p>
+        </div>
+      </div>
+
+      <div class="btn-centro">
+        <a href="/" class="btn-principal">← Volver al inicio</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* ── BANNER ── */
+  .banner {
+    position: relative;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+  }
+
+  .banner-fondo {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(138,90,150,0.88) 0%, rgba(170,120,180,0.85) 60%, rgba(201,168,212,0.8) 100%),
+      url('/img/dia_rcp_mundial.jpg');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    animation: kenburns 20s ease-in-out infinite alternate;
+    z-index: 0;
+  }
+
+  @keyframes kenburns {
+    0%   { transform: scale(1) translate(0, 0); }
+    100% { transform: scale(1.15) translate(-1%, -1%); }
+  }
+
+  .banner-contenido { position: relative; z-index: 1; }
+
+  .banner h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
+  /* ── CONTENEDOR ── */
+  .contenedor {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* ── HISTORIA ── */
+  .historia {
+    padding: 4rem 0;
+    background: white;
+  }
+
+  .historia-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .historia-imagen {
+  position: sticky;
+  top: 100px;
+}
+
+  .historia-imagen img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(170,120,180,0.2);
+  }
+
+  .historia-texto p {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+    text-align: justify;
+  }
+
+  /* ── BOTÓN VOLVER ── */
+  .btn-centro {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .btn-principal {
+    display: inline-block;
+    background: var(--color-principal);
+    color: white;
+    padding: 0.9rem 2.5rem;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-principal:hover {
+    background: var(--color-oscuro);
+    transform: translateY(-2px);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .banner h2 { font-size: 1.8rem; }
+    .historia-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>

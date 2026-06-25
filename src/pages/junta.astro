@@ -1,0 +1,239 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const miembros = [
+  { nombre: "Mariano Martínez", cargo: "Presidente", foto: "/img/mario_martinez.jpg" },
+  { nombre: "Dr. Javier Pérez Lara", cargo: "Vicepresidente", foto: "/img/javier_perez.jpg" },
+  { nombre: "Encarni Parejo", cargo: "Vocal", foto: "/img/encarni_parejo.jpg" },
+  { nombre: "Inma Cuenca", cargo: "Vocal", foto: "/img/inma_cuenca.jpg" },
+  { nombre: "Loli Burgos", cargo: "Vocal", foto: "/img/loli_burgos.jpg" },
+  { nombre: "Carmen Moreno", cargo: "Secretaria y Tesorera", foto: "/img/carmen_moreno.jpg" },
+];
+---
+
+<Layout title="Junta Directiva | Corazones Solidarios Antequera">
+
+  <!-- Banner superior -->
+  <section class="banner">
+    <div class="banner-fondo"></div>
+    <div class="banner-contenido">
+      <h2>Nuestra Junta Directiva</h2>
+      <p>Las personas que hacen posible Corazones Solidarios</p>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="intro-seccion">
+    <div class="contenedor">
+      <p class="intro-texto">
+        La Junta Directiva de <strong>Corazones Solidarios Antequera</strong> está formada por personas comprometidas con la salud, la solidaridad y el bienestar de nuestra comunidad.
+      </p>
+    </div>
+  </section>
+
+  <!-- Miembros -->
+  <section class="miembros-seccion">
+    <div class="contenedor">
+      <div class="grid-miembros">
+        {miembros.map((m) => (
+          <div class="miembro-card">
+            <img src={m.foto} alt={m.nombre} class="ampliable" />
+            <h3>{m.nombre}</h3>
+            <p>{m.cargo}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox para ampliar fotos -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-cerrar" id="lightbox-cerrar">&times;</span>
+    <img src="" alt="" id="lightbox-img" />
+  </div>
+
+</Layout>
+
+<style>
+  /* ── BANNER ── */
+  .banner {
+    position: relative;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+  }
+
+  .banner-fondo {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(138,90,150,0.88) 0%, rgba(170,120,180,0.85) 60%, rgba(201,168,212,0.8) 100%),
+    url('/img/foto_grupo_hadas.jpg');
+  background-size: cover;
+  background-position: center 45%;
+  background-blend-mode: multiply;
+  animation: kenburns 20s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+  @keyframes kenburns {
+    0%   { transform: scale(1) translate(0, 0); }
+    100% { transform: scale(1.15) translate(-1%, -1%); }
+  }
+
+  .banner-contenido { position: relative; z-index: 1; }
+
+  .banner h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+  }
+
+  .banner p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+  }
+
+  /* ── CONTENEDOR ── */
+  .contenedor {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* ── INTRO ── */
+  .intro-seccion {
+    padding: 3rem 0 1rem;
+    background: white;
+    text-align: center;
+  }
+
+  .intro-texto {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.7;
+  }
+
+  /* ── MIEMBROS ── */
+  .miembros-seccion {
+    padding: 3rem 0 5rem;
+    background: white;
+  }
+
+  .grid-miembros {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .miembro-card {
+    background: var(--color-muy-claro);
+    border-radius: 15px;
+    padding: 1.2rem;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(170,120,180,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .miembro-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(170,120,180,0.18);
+  }
+
+  .miembro-card img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.2s;
+  border: 4px solid white;
+  box-shadow: 0 4px 16px rgba(170,120,180,0.25);
+}
+
+  .miembro-card img:hover {
+    transform: scale(1.02);
+  }
+
+  .miembro-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-principal);
+    margin-bottom: 0.3rem;
+  }
+
+  .miembro-card p {
+    font-size: 0.95rem;
+    color: #666;
+  }
+
+  /* ── LIGHTBOX ── */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .lightbox.activo {
+    display: flex;
+  }
+
+  .lightbox img {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  }
+
+  .lightbox-cerrar {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .banner h2 { font-size: 1.8rem; }
+    .grid-miembros { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const cerrar = document.getElementById('lightbox-cerrar');
+    const imagenes = document.querySelectorAll('.ampliable');
+
+    imagenes.forEach((img) => {
+      img.addEventListener('click', () => {
+        lightboxImg.setAttribute('src', img.getAttribute('src'));
+        lightboxImg.setAttribute('alt', img.getAttribute('alt'));
+        lightbox.classList.add('activo');
+      });
+    });
+
+    const cerrarLightbox = () => {
+      lightbox.classList.remove('activo');
+    };
+
+    cerrar.addEventListener('click', cerrarLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) cerrarLightbox();
+    });
+  });
+</script>
