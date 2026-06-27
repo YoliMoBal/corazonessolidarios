@@ -3,32 +3,32 @@ import Layout from '../layouts/Layout.astro';
 
 const noticias = [
   {
-    titulo: "Mercado de la Solidaridad y entrega de Premios por el Día Internacional del Voluntariado",
-    fecha: "30 de noviembre de 2025",
-    categoria: "Premios",
-    imagen: "/img/premio_labor_voluntarios.jpg",
-    texto: "La Plaza Castilla acoge el Mercado de la Solidaridad y la entrega de los Premios por el Día Internacional del Voluntariado en Antequera."
+    titulo: "Misión 112: enseñando a los más pequeños a salvar vidas",
+    fecha: "Junio de 2026",
+    categoria: "Formación",
+    imagen: "/img/noticia_mision_112.jpg",
+    texto: "Cerca de 250 niños y niñas del Colegio Nuestra Señora del Carmen recibieron formación en RCP y uso correcto del 112, de la mano de profesionales sanitarios y nuestro voluntariado."
   },
   {
-    titulo: 'BANCOSOL en "LA GRAN RECOGIDA 2025"',
-    fecha: "8 de noviembre de 2025",
-    categoria: "Voluntariado",
-    imagen: "/img/bancosol_voluntariado.jpg",
-    texto: "Corazones Solidarios acompaña a BANCOSOL en su gran recogida de alimentos. Gracias al voluntariado que lo hace posible."
+    titulo: "Tejer como práctica de bienestar y cuidado personal",
+    fecha: "2026",
+    categoria: "Promoción de Salud",
+    video: "https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1672622833962275%2F&show_text=false&width=560&t=0",
+    texto: "Recuperamos una práctica histórica de bienestar: tejer ayuda a calmar la mente. Animamos a todo el mundo a probarlo, sin edad ni condición."
   },
   {
-    titulo: "Seguimos acompañando, con humildad y cariño, a quienes más lo necesitan",
-    fecha: "5 de noviembre de 2025",
-    categoria: "Ayuda Social",
-    imagen: "/img/cama.jpg",
-    texto: "Gracias al Ayuntamiento de Antequera y a todas las personas que colaboran con nosotros."
+    titulo: "Taller sobre Infecciones de Transmisión Sexual en el IES José María Fernández",
+    fecha: "2026",
+    categoria: "Promoción de Salud",
+    imagen: "/img/noticia_its_instituto.jpg",
+    texto: "El Dr. J. Manuel Muñoz Martínez impartió una charla cercana y participativa sobre ITS al alumnado de 3º de ESO."
   },
   {
-    titulo: "Premio otorgado por la Fundación Juan Cruzado",
-    fecha: "20 de octubre de 2025",
-    categoria: "Premios",
-    imagen: "/img/fundacion_juan_cruzado.jpg",
-    texto: "Nos honra acompañar a entidades que comparten nuestro compromiso con las personas mayores y la solidaridad."
+    titulo: "Taller de Primeros Auxilios y RCP en la Agrupación Fotográfica Antequerana",
+    fecha: "2026",
+    categoria: "Talleres de Formación",
+    imagen: "/img/noticia_rcp_afa.jpg",
+    texto: "Profesionales voluntarios de Corazones Solidarios impartieron formación en primeros auxilios y RCP a los socios de la AFA."
   }
 ];
 ---
@@ -59,17 +59,32 @@ const noticias = [
         {noticias.map((n) => (
           <article class="tarjeta">
             <div class="tarjeta-img">
-              <img src={n.imagen} alt={n.titulo} />
+              {n.video ? (
+                <iframe
+                  src={n.video}
+                  width="100%"
+                  height="200"
+                  style="border:none;overflow:hidden;"
+                  scrolling="no"
+                  frameborder="0"
+                  allowfullscreen="true"
+                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                </iframe>
+              ) : (
+                <img src={n.imagen} alt={n.titulo} />
+              )}
               <span class="categoria">{n.categoria}</span>
             </div>
             <div class="tarjeta-cuerpo">
               <p class="fecha">📅 {n.fecha}</p>
               <h3>{n.titulo}</h3>
               <p class="resumen">{n.texto}</p>
-              <a href="#" class="leer-mas">Leer más →</a>
             </div>
           </article>
         ))}
+      </div>
+      <div class="btn-centro">
+        <a href="/historico" class="btn-historico">Ver histórico de noticias →</a>
       </div>
     </div>
   </section>
@@ -254,6 +269,12 @@ const noticias = [
     display: block;
   }
 
+  .tarjeta-img iframe {
+    width: 100%;
+    height: 200px;
+    display: block;
+  }
+
   .categoria {
     position: absolute;
     top: 10px;
@@ -264,6 +285,7 @@ const noticias = [
     font-weight: 700;
     padding: 3px 12px;
     border-radius: 20px;
+    z-index: 2;
   }
 
   .tarjeta-cuerpo { padding: 1.2rem; }
@@ -278,16 +300,26 @@ const noticias = [
     margin-bottom: 0.6rem;
   }
 
-  .resumen { font-size: 0.9rem; color: #666; line-height: 1.5; margin-bottom: 1rem; }
+  .resumen { font-size: 0.9rem; color: #666; line-height: 1.5; }
 
-  .leer-mas {
+  .btn-centro { text-align: center; margin-top: 2.5rem; }
+
+  .btn-historico {
+    display: inline-block;
     color: #AA78B4;
-    font-size: 0.9rem;
     font-weight: 700;
+    font-size: 1rem;
     text-decoration: none;
+    border: 2px solid #AA78B4;
+    padding: 0.7rem 2rem;
+    border-radius: 30px;
+    transition: background 0.2s, color 0.2s;
   }
 
-  .leer-mas:hover { text-decoration: underline; }
+  .btn-historico:hover {
+    background: #AA78B4;
+    color: white;
+  }
 
   /* ── PROYECTOS ── */
   .proyectos-seccion {

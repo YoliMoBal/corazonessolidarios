@@ -1,0 +1,309 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const noticias = [
+  {
+    titulo: "Misión 112: enseñando a los más pequeños a salvar vidas",
+    fecha: "Junio de 2026",
+    categoria: "Formación",
+    imagen: "/img/noticia_mision_112.jpg",
+    texto: "Cerca de 250 niños y niñas del Colegio Nuestra Señora del Carmen recibieron formación en RCP y uso correcto del 112, de la mano de profesionales sanitarios y nuestro voluntariado. La actividad inaugural de este nuevo proyecto contó también con una ambulancia real, para que los más pequeños perdieran el miedo a los servicios de emergencia."
+  },
+  {
+    titulo: "Tejer como práctica de bienestar y cuidado personal",
+    fecha: "2026",
+    categoria: "Promoción de Salud",
+    video: "https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1672622833962275%2F&show_text=false&width=560&t=0",
+    texto: "Recuperamos una práctica histórica de bienestar: tejer ayuda a calmar la mente. Animamos a todo el mundo a probarlo, sin edad ni condición, porque siempre ha sido una forma sencilla de cuidado personal."
+  },
+  {
+    titulo: "Taller sobre Infecciones de Transmisión Sexual en el IES José María Fernández",
+    fecha: "2026",
+    categoria: "Promoción de Salud",
+    imagen: "/img/noticia_its_instituto.jpg",
+    texto: "El Dr. J. Manuel Muñoz Martínez impartió una charla cercana y participativa sobre ITS al alumnado de 3º de ESO, resolviendo sus dudas de forma directa y veraz."
+  },
+  {
+    titulo: "Taller de Primeros Auxilios y RCP en la Agrupación Fotográfica Antequerana",
+    fecha: "2026",
+    categoria: "Talleres de Formación",
+    imagen: "/img/noticia_rcp_afa.jpg",
+    texto: "Profesionales voluntarios de Corazones Solidarios impartieron formación en primeros auxilios y RCP a los socios de la AFA."
+  },
+  {
+    titulo: 'AFA expone "Universos en una Gota", de Javier Pérez Lara',
+    fecha: "2026",
+    categoria: "Colaboración",
+    video: "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F990536816738496%2F&show_text=false&width=267&t=0",
+    texto: "La Agrupación Fotográfica Antequerana acogió la exposición del Dr. Javier Pérez Lara, vicepresidente de Corazones Solidarios, hasta el 30 de abril."
+  },
+  {
+    titulo: "Gracias a las Hadas del Taller Solidario",
+    fecha: "2025",
+    categoria: "Colaboración",
+    imagen: "/img/noticia_hadas_taller.jpg",
+    texto: "Con sus manos y su cariño elaboran los cojines solidarios que acompañan a mujeres operadas de cáncer de mama. Gracias por cada puntada, gracias por ser como sois."
+  },
+  {
+    titulo: "VI Edición de los Premios Corazón de Oro",
+    fecha: "8 de abril de 2025",
+    categoria: "Premios",
+    imagen: "/img/noticia_vi_premios_corazon.jpg",
+    texto: 'Celebrados con motivo del Día Mundial de la Salud, bajo el lema "Comienzos Saludables, futuros esperanzadores". El Corazón de Oro no se entrega, solo se reconoce. Premiada entre otros la Dra. Tania Galeote por su empatía y dulzura con cada paciente.'
+  },
+  {
+    titulo: "Mercado de la Solidaridad y entrega de Premios por el Día Internacional del Voluntariado",
+    fecha: "30 de noviembre de 2025",
+    categoria: "Premios",
+    imagen: "/img/premio_labor_voluntarios.jpg",
+    texto: "La Plaza Castilla acoge el Mercado de la Solidaridad y la entrega de los Premios por el Día Internacional del Voluntariado en Antequera."
+  },
+  {
+    titulo: 'BANCOSOL en "LA GRAN RECOGIDA 2025"',
+    fecha: "8 de noviembre de 2025",
+    categoria: "Voluntariado",
+    imagen: "/img/bancosol_voluntariado.jpg",
+    texto: "Corazones Solidarios acompaña a BANCOSOL en su gran recogida de alimentos. Gracias al voluntariado que lo hace posible."
+  },
+  {
+    titulo: "Seguimos acompañando, con humildad y cariño, a quienes más lo necesitan",
+    fecha: "5 de noviembre de 2025",
+    categoria: "Ayuda Social",
+    imagen: "/img/cama.jpg",
+    texto: "Gracias al Ayuntamiento de Antequera y a todas las personas que colaboran con nosotros."
+  },
+  {
+    titulo: "Premio otorgado por la Fundación Juan Cruzado",
+    fecha: "20 de octubre de 2025",
+    categoria: "Premios",
+    imagen: "/img/fundacion_juan_cruzado.jpg",
+    texto: "Nos honra acompañar a entidades que comparten nuestro compromiso con las personas mayores y la solidaridad."
+  }
+];
+---
+
+<Layout title="Histórico de Noticias | Corazones Solidarios Antequera">
+
+  <!-- Banner superior -->
+  <section class="banner">
+    <div class="banner-fondo"></div>
+    <div class="banner-contenido">
+      <h2>Histórico de Noticias</h2>
+      <p>Todo lo que hemos vivido juntos en Corazones Solidarios</p>
+    </div>
+  </section>
+
+  <!-- Listado de noticias -->
+  <section class="noticias-seccion">
+    <div class="contenedor">
+      <div class="grid-noticias">
+        {noticias.map((n) => (
+          <article class="tarjeta">
+            <div class="tarjeta-img">
+              {n.video ? (
+                <iframe
+                  src={n.video}
+                  width="100%"
+                  height="350"
+                  style="border:none;overflow:hidden;"
+                  scrolling="no"
+                  frameborder="0"
+                  allowfullscreen="true"
+                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                </iframe>
+              ) : (
+                <img src={n.imagen} alt={n.titulo} class="ampliable" />
+              )}
+              <span class="categoria">{n.categoria}</span>
+            </div>
+            <div class="tarjeta-cuerpo">
+              <p class="fecha">📅 {n.fecha}</p>
+              <h3>{n.titulo}</h3>
+              <p class="resumen">{n.texto}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox para ampliar imágenes -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-cerrar" id="lightbox-cerrar">&times;</span>
+    <img src="" alt="" id="lightbox-img" />
+  </div>
+
+</Layout>
+
+<style>
+  /* ── BANNER ── */
+  .banner {
+    position: relative;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+  }
+
+  .banner-fondo {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(138,90,150,0.88) 0%, rgba(170,120,180,0.85) 60%, rgba(201,168,212,0.8) 100%),
+      url('/img/noticia_hadas_taller.jpg');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    animation: kenburns 20s ease-in-out infinite alternate;
+    z-index: 0;
+  }
+
+  @keyframes kenburns {
+    0%   { transform: scale(1) translate(0, 0); }
+    100% { transform: scale(1.15) translate(-1%, -1%); }
+  }
+
+  .banner-contenido { position: relative; z-index: 1; }
+
+  .banner h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+  }
+
+  .banner p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+  }
+
+  /* ── CONTENEDOR ── */
+  .contenedor {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* ── NOTICIAS ── */
+  .noticias-seccion { padding: 3rem 0 5rem; }
+
+  .grid-noticias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.8rem;
+  }
+
+  .tarjeta {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(170,120,180,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .tarjeta:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(170,120,180,0.15);
+  }
+
+  .tarjeta-img { position: relative; }
+
+  .tarjeta-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+  }
+
+  .tarjeta-img iframe {
+    width: 100%;
+    height: 350px;
+    display: block;
+  }
+
+  .categoria {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--color-principal);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+    z-index: 2;
+  }
+
+  .tarjeta-cuerpo { padding: 1.2rem; }
+
+  .fecha { font-size: 0.82rem; color: #aaa; margin-bottom: 0.5rem; }
+
+  .tarjeta-cuerpo h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #222;
+    line-height: 1.4;
+    margin-bottom: 0.6rem;
+  }
+
+  .resumen { font-size: 0.9rem; color: #666; line-height: 1.5; }
+
+  /* ── LIGHTBOX ── */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .lightbox.activo { display: flex; }
+
+  .lightbox img {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  }
+
+  .lightbox-cerrar {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .banner h2 { font-size: 1.8rem; }
+    .grid-noticias { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const cerrar = document.getElementById('lightbox-cerrar');
+    const imagenes = document.querySelectorAll('.ampliable');
+
+    imagenes.forEach((img) => {
+      img.addEventListener('click', () => {
+        lightboxImg.setAttribute('src', img.getAttribute('src'));
+        lightboxImg.setAttribute('alt', img.getAttribute('alt'));
+        lightbox.classList.add('activo');
+      });
+    });
+
+    const cerrarLightbox = () => lightbox.classList.remove('activo');
+    cerrar.addEventListener('click', cerrarLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) cerrarLightbox();
+    });
+  });
+</script>
